@@ -1,7 +1,6 @@
 'use strict';
 
 
-
 const game = function (){
 
 
@@ -9,7 +8,7 @@ const game = function (){
 
   let attempts=10; //колличество попыток
 
-  return function repeat() {
+   return function repeat() {
 
     let entered=prompt('Угадайте число от 1 до 100');//считываем то, что вводим в строке
 
@@ -39,19 +38,19 @@ const game = function (){
       let con=confirm("Правильно! Сыграем ещё раз?"); 
        if (con === true) {  // если хотим играть
          attempts=10;
-        return repeat();  // название функции
+        return game()();  // название функции
       }
       }
-    }
+      }
      else if (attempts===1) {  // колличество попыток равно 0 
       let con=confirm('Вы не угадали :( Загаданное число: '+randomNum+'. Сыграем ещё раз?'); 
       if (con === true) {  // если хотим играть
          attempts=10;
-        return repeat();
+        return game()();
       }
     }
   };
 };
 
 game()();
-console.dir(game);
+console.dir(game());
